@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    {% include 'pages/head_links.html' %}
+  </head>
+  <body>
+    <div class="page_loader"></div>
+
+    {% include 'includes/topbar.html' %} {% include 'includes/navbar.html' %}
+    {%block content %} {% endblock %} {% include 'includes/footer.html' %}
+    {%include 'pages/body_scripts.html' %}
+  </body>
+</html>
