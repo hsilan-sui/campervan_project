@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'campervan.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'campervan_db',
+        'USER': 'postgres',
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+        'HOST':'localhost',
+        'PORT': '5432', #默認
     }
 }
 
@@ -122,6 +126,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'campervan/static'),
 ]
+
+# Static files (媒體檔案)
+MEDIA_URL = '/media/' #用來訪問使用者上傳媒體檔案的 URL 前綴，用於瀏覽器或應用程式中的檔案訪問
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #檔案系統路徑，用於指定存放使用者上傳媒體檔案的實際資料夾
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
