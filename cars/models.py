@@ -1,5 +1,7 @@
 from django.db import models
 from datetime import datetime
+from django_ckeditor_5.fields import CKEditor5Field
+from multiselectfield import MultiSelectField
 
 # Create your models here.
 class Car(models.Model):
@@ -98,14 +100,16 @@ class Car(models.Model):
     year = models.IntegerField(('year'),choices=year_choices)
     condition = models.CharField(max_length=100)
     price = models.IntegerField()
-    description = models.TextField(max_length=500)
+    # description = RichTextField()
+    description = CKEditor5Field('Text', config_name='extends')
     # image檔案
     car_photo = models.ImageField(upload_to='photos/%Y/%m/%d/')
     car_photo_1 = models.ImageField(upload_to='photos/%Y/%m/%d/')
     car_photo_2 = models.ImageField(upload_to='photos/%Y/%m/%d/')
     car_photo_3 = models.ImageField(upload_to='photos/%Y/%m/%d/')
     car_photo_4 = models.ImageField(upload_to='photos/%Y/%m/%d/')
-    features = models.CharField(choices=features_choices, max_length=100)
+    #MultiSelectField
+    features = MultiSelectField(choices=features_choices, max_length=250)
     body_style = models.CharField(max_length=100)
     engine = models.CharField(max_length=100)
     transmission = models.CharField(max_length=100)
@@ -121,3 +125,6 @@ class Car(models.Model):
     #是一個函數引用，它將在創建新記錄時被調用，從而獲取當前時間。如果你不想立即調用函數，可以使用這種方式
     created_date = models.DateTimeField(default=datetime.now, blank=True)
     #這個參數允許該字段在表單中可以留空。這意味著即使表單中沒有提供created_date的值，該字段也不會觸發表單驗證錯誤
+
+    def __str__(self):
+        return self.car_title
