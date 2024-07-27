@@ -3,7 +3,7 @@
   <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light">
       <a class="navbar-brand company-logo" href="{% url 'home' %}">
-        <img src="{% static 'img/logos/black-logo.png' %}" alt="l" />
+        <img src="../../campervan/static/img/logos/black-logo.png" alt="MotoHome" />
       </a>
       <button
         class="navbar-toggler"
@@ -27,17 +27,17 @@
             {% endif %}
             class="nav-link" 
             href="{% url 'home' %}">
-              Home
+              首頁
             </a>
           </li>
           <li class="nav-item">
             <a 
-            {% if 'campervans' == request.path %}
+            {% if 'cars' == request.path %}
             class="nav-link active" 
             {% else %}
             class="nav-link" 
             {% endif %}
-            href="{% url 'campervans' %}"> Cars </a>
+            href="{% url 'cars' %}"> 露營車款 </a>
           </li>
           <li class="nav-item">
             <a 
@@ -46,7 +46,7 @@
             {% else %}
             class="nav-link" 
             {% endif %}
-            href="{% url 'about' %}"> About </a>
+            href="{% url 'about' %}"> 關於我們 </a>
           </li>
           <li class="nav-item">
             <a 
@@ -55,7 +55,7 @@
             {% else %}
             class="nav-link" 
             {% endif %}
-            href="{% url 'services' %}"> Services </a>
+            href="{% url 'services' %}"> 服務 </a>
           </li>
 
           <li class="nav-item">
@@ -65,7 +65,7 @@
             {% else %}
             class="nav-link" 
             {% endif %}
-            href="{% url 'contact' %}">Contact</a>
+            href="{% url 'contact' %}">聯繫我們</a>
           </li>
           <li class="nav-item m-hide">
             <a href="#full-page-search" class="nav-link h-icon">
