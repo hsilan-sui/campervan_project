@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'multiselectfield',
     'django_ckeditor_5',
+    "django.contrib.humanize",
 ]
 
 
