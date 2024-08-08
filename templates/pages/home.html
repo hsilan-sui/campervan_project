@@ -184,7 +184,7 @@
             <div class="slick-slide-item">
               <div class="car-box-3">
                 <div class="car-thumbnail">
-                  <a href="car-details.html" class="car-img">
+                  <a href="{% url 'car_detail' id=car.id %}" class="car-img">
                     <div class="tag-2">好評</div>
                     <div class="price-box">
                       <span class="del">
@@ -245,10 +245,10 @@
                 </div>
                 <div class="detail">
                   <h1 class="title">
-                    <a href="car-details.html">{{ car.car_title }}</a>
+                    <a href="{% url 'car_detail' id=car.id %}">{{ car.car_title }}</a>
                   </h1>
                   <div class="location">
-                    <a href="car-details.html">
+                    <a href="{% url 'car_detail' id=car.id %}">
                       <i class="flaticon-pin"></i>{{car.state}}. {{car.city}}
                     </a>
                   </div>
