@@ -18,10 +18,9 @@
             <div
               class="carousel-content container banner-info-2 bi-2 text-left"
             >
-              <h3>四輪傳動，探索荒野</h3>
+              <h3>來一場遊牧之旅！</h3>
               <h5>
-                Allow us to guide you through the innovative stress<br />
-                free approach in finding your dream car.
+                全新車款，精心的車屋室內設計！<br />
               </h5>
               <a href="{% url 'services' %}" class="btn btn-lg btn-theme">詳細資訊</a>
             </div>
@@ -63,34 +62,25 @@
         </div>
         <!-- Search box 3 start -->
         <div class="search-box-4 sb-8">
-          <form action="#" method="">
-            <div class="form-group">
+          <form action="{% url 'search' %}" method="">
+            {% comment %} <div class="form-group">
               <input
                 type="text"
                 name="keyword"
                 placeholder="Search by name"
                 class="form-control"
               />
-            </div>
-            <div class="form-group">
-              <select class="form-control search-fields" name="select-brand">
-                <option selected="true" disabled="disabled">Brand</option>
-                <option>Audi</option>
-                <option>BMW</option>
-                <option>Honda</option>
-                <option>Nissan</option>
-              </select>
-            </div>
+            </div> {% endcomment %}
+
             <div class="form-group">
               <select class="form-control search-fields" name="select-make">
                 <option selected="true" disabled="disabled">車款</option>
-                <option>BMW</option>
-                <option>Honda</option>
-                <option>Lamborghini Huracán</option>
-                <option>Sports Car</option>
+                {% for model in search_fields %}
+                <option>{{model.model}}</option>
+                {% endfor %}
               </select>
             </div>
-            <div class="form-group">
+            {% comment %} <div class="form-group">
               <select class="form-control search-fields" name="select-location">
                 <option selected="true" disabled="disabled">城市</option>
                 <option>United States</option>
@@ -109,7 +99,20 @@
             <div class="form-group">
               <select class="form-control search-fields" name="select-type">
                 <option selected="true" disabled="disabled">
-                  Select Type Of Car
+                  變速系統
+                </option>
+                <option>Sedan</option>
+                <option>Sports</option>
+                <option>Hatchback</option>
+                <option>Pickup Truck</option>
+                <option>SUV</option>
+              </select>
+            </div> {% endcomment %}
+            <!-- 租車地點start -->
+            <div class="form-group">
+              <select class="form-control search-fields" name="select-type">
+                <option selected="true" disabled="disabled">
+                  租車地點
                 </option>
                 <option>Sedan</option>
                 <option>Sports</option>
@@ -118,14 +121,57 @@
                 <option>SUV</option>
               </select>
             </div>
+             <!-- 租車地點en -->
+             <!-- 還車地點start -->
+            <div class="form-group">
+              <select class="form-control search-fields" name="select-type">
+                <option selected="true" disabled="disabled">
+                  還車地點
+                </option>
+                <option>Sedan</option>
+                <option>Sports</option>
+                <option>Hatchback</option>
+                <option>Pickup Truck</option>
+                <option>SUV</option>
+              </select>
+            </div>
+             <!-- 還車地點end -->
+            <!-- 租車日期 -->
+            <div class="form-group">
+              <select class="form-control search-fields" name="select-type">
+                <option selected="true" disabled="disabled">
+                  取車日期
+                </option>
+                <option>Sedan</option>
+                <option>Sports</option>
+                <option>Hatchback</option>
+                <option>Pickup Truck</option>
+                <option>SUV</option>
+              </select>
+            </div>
+             <!-- 租車日期end -->
+             <!-- 還車日期start -->
+            <div class="form-group">
+              <select class="form-control search-fields" name="select-type">
+                <option selected="true" disabled="disabled">
+                  還車日期
+                </option>
+                <option>Sedan</option>
+                <option>Sports</option>
+                <option>Hatchback</option>
+                <option>Pickup Truck</option>
+                <option>SUV</option>
+              </select>
+            </div>
+             <!-- 還車日期end -->
             <div class="range-slider clearfix">
               <label>租借價格</label>
               <div
                 data-min="0"
-                data-max="150000"
+                data-max="10000"
                 data-min-name="min_price"
                 data-max-name="max_price"
-                data-unit="USD"
+                data-unit="TWD"
                 class="range-slider-ui ui-slider"
                 aria-disabled="false"
               ></div>

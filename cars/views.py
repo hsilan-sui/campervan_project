@@ -28,3 +28,19 @@ def car_detail(request, id):
         'single_car': single_car
     }
     return render(request,'cars/car_detail.html', context)
+
+def search(request):
+    #取的卡片資料
+    cars = Car.objects.order_by('-created_date')
+
+    #做關鍵字判斷
+    if 'keyword' in request.GET:
+        keyword = request.GET['keyword']
+        if keyword:
+            cars =cars.filter(description__icontains=keyword)#description欄位關鍵字
+
+    context = {
+        'cars':cars,
+    }
+    return render(request, 'cars/search.html',context)
+    
